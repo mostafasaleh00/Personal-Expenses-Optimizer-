@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f4f7f6;
+    }
+    .container {
+      margin-top: 50px;
+      max-width: 700px;
+    }
+    .card {
+      padding: 30px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    table {
+      font-size: 18px;
+    }
+    .btn-custom {
+      background-color: #007bff;
+      color: white;
+      font-size: 18px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 class="text-center">Prediction Result</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Output</th>
+            <th>Predicted Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in results.items() %}
+          <tr>
+            <td>{{ key }}</td>
+            <td>{{ value }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <a href="/chat" class="btn btn-custom btn-block mt-4">Chat with Gemini for Advice</a>
+      <a href="/" class="btn btn-custom btn-block mt-2">Make Another Prediction</a>
+    </div>
+  </div>
+</body>
+</html>

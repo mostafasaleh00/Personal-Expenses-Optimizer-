@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Prediction</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f4f7f6;
+    }
+    .container {
+      margin-top: 50px;
+      max-width: 700px;
+    }
+    .card {
+      padding: 30px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .form-control {
+      height: 45px;
+      font-size: 16px;
+    }
+    .btn-custom {
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      border: none;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1 class="text-center">Enter Your Financial Data</h1>
+      {% if error %}
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+      {% endif %}
+      <form method="POST">
+        {% for feature in features %}
+        <div class="form-group">
+          <label for="{{ feature }}">{{ feature }}</label>
+          <input type="number" step="any" class="form-control" id="{{ feature }}" name="{{ feature }}" placeholder="Enter {{ feature }}" required>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-custom btn-block">Predict</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
